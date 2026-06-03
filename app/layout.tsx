@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Russo_One, Hind } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const russoOne = Russo_One({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-russo",
 });
 
-const playfair = Playfair_Display({
+const hind = Hind({
+  weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-hind",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+      <body className={`${russoOne.variable} ${hind.variable} antialiased`}>
         {children}
       </body>
     </html>
