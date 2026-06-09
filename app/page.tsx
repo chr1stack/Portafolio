@@ -401,46 +401,12 @@ export default function Portfolio() {
         {/* HERO */}
         <section
           id="inicio"
-          className="hero-minimal relative min-h-screen overflow-hidden bg-[#0a0a0a] px-4 pb-10 pt-24 text-white md:px-8 lg:pt-28"
+          className="hero-minimal relative min-h-screen overflow-x-hidden px-4 pb-10 pt-28 text-white md:px-8"
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(255,255,255,0.14),transparent_36%)]" />
-          <motion.div
-            className="absolute bottom-0 right-0 top-0 z-0 hidden w-[40vw] min-w-[440px] overflow-hidden lg:block"
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ type: "spring", stiffness: 90, damping: 24, mass: 0.9 }}
-          >
-            <Image
-              src="/foto.png"
-              alt="Christofer Villagrán"
-              fill
-              priority
-              className="object-cover object-top"
-              style={{ objectPosition: "top center" }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/28 to-black/70" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
-          </motion.div>
-          <div className="relative z-10 mx-auto flex min-h-[calc(100vh-6rem)] max-w-7xl flex-col lg:min-h-[calc(100vh-8rem)]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.14),transparent_36%)]" />
+          <div className="relative mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl flex-col justify-end">
             <motion.div
-              className="relative -mx-4 mb-8 h-[300px] overflow-hidden md:-mx-8 lg:hidden"
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ type: "spring", stiffness: 90, damping: 24, mass: 0.9 }}
-            >
-              <Image
-                src="/foto.png"
-                alt="Christofer Villagrán"
-                fill
-                priority
-                className="object-cover object-top"
-                style={{ objectPosition: "top center" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/18 to-transparent" />
-            </motion.div>
-            {/* Texto izquierdo */}
-            <motion.div
-              className="flex flex-1 flex-col justify-end pb-8 lg:w-[60%]"
+              className="pb-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
@@ -463,7 +429,7 @@ export default function Portfolio() {
                 className="uppercase"
                 style={{
                   ...titleStyle,
-                  fontSize: "clamp(3.5rem, 9.5vw, 8.5rem)",
+                  fontSize: "clamp(4rem, 11vw, 10rem)",
                   lineHeight: 0.88,
                 }}
               >
@@ -472,7 +438,7 @@ export default function Portfolio() {
               </h1>
 
               <motion.div
-                className="mt-8 grid max-w-2xl gap-4 md:grid-cols-[0.72fr_1.28fr]"
+                className="mt-8 grid max-w-3xl gap-4 md:grid-cols-[0.72fr_1.28fr]"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.1 }}
@@ -485,7 +451,69 @@ export default function Portfolio() {
                 </p>
               </motion.div>
             </motion.div>
+          </div>
+        </section>
 
+        {/* SOBRE MÍ */}
+        <section className="bg-[#f4f0e8] px-4 py-24 md:px-8 md:py-32">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            {/* Texto */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.65 }}
+            >
+              <Label>Sobre mí</Label>
+              <h2
+                className="mb-6 uppercase leading-[0.88]"
+                style={{ ...titleStyle, fontSize: "clamp(2.6rem, 5vw, 5rem)" }}
+              >
+                Tecnología con criterio humano
+              </h2>
+              <p className="mb-10 max-w-lg text-xl leading-relaxed text-slate-600">
+                Autodidacta con más de 6 años combinando soporte TI, desarrollo web y medios digitales. He trabajado desde redes físicas hasta plataformas digitales en Chile y Brasil.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  ["6+", "Años"],
+                  ["2", "Proyectos"],
+                  ["5+", "Empresas"],
+                  ["2", "Países"],
+                ].map(([num, label]) => (
+                  <div
+                    key={label}
+                    className="rounded-2xl border border-black/10 bg-white/60 px-6 py-5"
+                  >
+                    <p
+                      className="leading-none text-slate-950"
+                      style={{ ...titleStyle, fontSize: "clamp(2.4rem, 4vw, 3.2rem)" }}
+                    >
+                      {num}
+                    </p>
+                    <p className="mt-1 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                      {label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Foto */}
+            <motion.div
+              className="relative h-[500px] overflow-hidden rounded-2xl shadow-[0_40px_120px_rgba(15,23,42,0.18)]"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.65, delay: 0.1 }}
+            >
+              <Image
+                src="/foto.png"
+                alt="Christofer Villagrán"
+                fill
+                className="object-cover object-top"
+              />
+            </motion.div>
           </div>
         </section>
 
