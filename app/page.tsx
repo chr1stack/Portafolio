@@ -212,7 +212,7 @@ function AnimatedWord({
           style={
             stroke
               ? {
-                  WebkitTextStroke: "2.5px rgba(255,255,255,0.92)",
+                  WebkitTextStroke: "1.5px rgba(255,255,255,0.92)",
                   color: "transparent",
                 }
               : {
@@ -268,7 +268,7 @@ function ProjectRow({ project }: { project: Project }) {
           className="flex-1 uppercase leading-none"
           style={{
             ...titleStyle,
-            fontSize: "clamp(2.4rem, 5vw, 5rem)",
+            fontSize: "clamp(1.4rem, 2.4vw, 2.4rem)",
             color: hovered ? "#ef4b2a" : "inherit",
             transition: "color 0.2s ease",
           }}
@@ -318,7 +318,7 @@ function ProjectRow({ project }: { project: Project }) {
             style={{ overflow: "hidden" }}
           >
             <div className={`my-5 rounded-[1.6rem] ${project.theme} border border-black/8 p-6 md:p-10`}>
-              <p className="mb-8 max-w-2xl text-xl leading-relaxed text-slate-600">
+              <p className="mb-8 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
                 {project.intro}
               </p>
               <div className="grid gap-5 border-t border-black/10 pt-6 md:grid-cols-3">
@@ -429,8 +429,8 @@ export default function Portfolio() {
                 className="uppercase"
                 style={{
                   ...titleStyle,
-                  fontSize: "clamp(4rem, 11vw, 10rem)",
-                  lineHeight: 0.88,
+                  fontSize: "clamp(2.8rem, 6vw, 5.5rem)",
+                  lineHeight: 0.9,
                 }}
               >
                 <AnimatedWord text="CHRISTOFER" delay={0.2} />
@@ -446,7 +446,7 @@ export default function Portfolio() {
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/40">
                   {profile.role}
                 </p>
-                <p className="text-xl leading-snug text-white/76 md:text-2xl">
+                <p className="text-base leading-relaxed text-white/76 md:text-lg">
                   {profile.summary}
                 </p>
               </motion.div>
@@ -466,12 +466,12 @@ export default function Portfolio() {
             >
               <Label>Sobre mí</Label>
               <h2
-                className="mb-6 uppercase leading-[0.88]"
-                style={{ ...titleStyle, fontSize: "clamp(2.6rem, 5vw, 5rem)" }}
+                className="mb-6 uppercase leading-[0.9]"
+                style={{ ...titleStyle, fontSize: "clamp(1.7rem, 2.8vw, 2.6rem)" }}
               >
                 Tecnología con criterio humano
               </h2>
-              <p className="mb-10 max-w-lg text-xl leading-relaxed text-slate-600">
+              <p className="mb-10 max-w-lg text-base leading-relaxed text-slate-600 md:text-lg">
                 Autodidacta con más de 6 años combinando soporte TI, desarrollo web y medios digitales. He trabajado desde redes físicas hasta plataformas digitales en Chile y Brasil.
               </p>
               <div className="grid grid-cols-2 gap-4">
@@ -487,7 +487,7 @@ export default function Portfolio() {
                   >
                     <p
                       className="leading-none text-slate-950"
-                      style={{ ...titleStyle, fontSize: "clamp(2.4rem, 4vw, 3.2rem)" }}
+                      style={{ ...titleStyle, fontSize: "clamp(1.5rem, 2.2vw, 2rem)" }}
                     >
                       {num}
                     </p>
@@ -539,7 +539,7 @@ export default function Portfolio() {
             <div className="mb-14 grid gap-6 md:grid-cols-[0.7fr_1.3fr]">
               <Label>Trabajo seleccionado</Label>
               <h2
-                className="text-5xl uppercase leading-[0.9] md:text-8xl"
+                className="text-2xl uppercase leading-[1.0] md:text-4xl"
                 style={titleStyle}
               >
                 Proyectos presentados como productos reales.
@@ -559,7 +559,7 @@ export default function Portfolio() {
             <div className="mb-14 grid gap-6 md:grid-cols-[0.72fr_1.28fr]">
               <Label light>Contribuciones</Label>
               <h2
-                className="text-5xl uppercase leading-[0.9] md:text-8xl"
+                className="text-2xl uppercase leading-[1.0] md:text-4xl"
                 style={titleStyle}
               >
                 No son cargos. Son problemas resueltos.
@@ -580,7 +580,7 @@ export default function Portfolio() {
                       {item.period}
                     </p>
                     <h3
-                      className="text-3xl uppercase leading-none md:text-5xl"
+                      className="text-lg uppercase leading-tight md:text-2xl"
                       style={titleStyle}
                     >
                       {item.title}
@@ -588,7 +588,7 @@ export default function Portfolio() {
                     <p className="mt-3 text-sm opacity-55">{item.company}</p>
                   </div>
                   <div>
-                    <p className="max-w-3xl text-xl leading-snug opacity-75">
+                    <p className="max-w-3xl text-base leading-relaxed opacity-75 md:text-lg">
                       {item.text}
                     </p>
                     <div className="mt-6 flex flex-wrap gap-2">
@@ -614,7 +614,7 @@ export default function Portfolio() {
             <div className="mb-14 grid gap-6 md:grid-cols-[0.75fr_1.25fr]">
               <Label>Habilidades</Label>
               <h2
-                className="text-5xl uppercase leading-[0.9] md:text-8xl"
+                className="text-2xl uppercase leading-[1.0] md:text-4xl"
                 style={titleStyle}
               >
                 Lo que sé hacer, explicado por áreas.
@@ -633,10 +633,10 @@ export default function Portfolio() {
                   <p className="mb-16 text-xs font-bold uppercase tracking-[0.24em] opacity-45">
                     0{index + 1}
                   </p>
-                  <h3 className="text-4xl uppercase leading-none" style={titleStyle}>
+                  <h3 className="text-xl uppercase leading-none" style={titleStyle}>
                     {skill.area}
                   </h3>
-                  <p className="mt-5 text-lg leading-snug opacity-70">{skill.value}</p>
+                  <p className="mt-4 text-sm leading-relaxed opacity-70">{skill.value}</p>
                   <div className="mt-8 flex flex-wrap gap-2">
                     {skill.items.map((item) => (
                       <span
@@ -659,7 +659,7 @@ export default function Portfolio() {
             <div className="mb-14 grid gap-6 md:grid-cols-[0.75fr_1.25fr]">
               <Label>Tecnologías</Label>
               <h2
-                className="text-5xl uppercase leading-[0.9] md:text-8xl"
+                className="text-2xl uppercase leading-[1.0] md:text-4xl"
                 style={titleStyle}
               >
                 Herramientas reales usadas en trabajo real.
@@ -676,10 +676,10 @@ export default function Portfolio() {
                   <p className="mb-10 text-xs font-bold uppercase tracking-[0.22em] opacity-45">
                     Tool · {String(index + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="text-4xl uppercase leading-none" style={titleStyle}>
+                  <h3 className="text-xl uppercase leading-none" style={titleStyle}>
                     {name}
                   </h3>
-                  <p className="mt-5 leading-snug opacity-70">{use}</p>
+                  <p className="mt-4 text-sm leading-relaxed opacity-70">{use}</p>
                 </div>
               ))}
             </div>
@@ -692,14 +692,14 @@ export default function Portfolio() {
             <div>
               <Label>Contacto</Label>
               <h2
-                className="text-5xl uppercase leading-[0.86] md:text-9xl"
+                className="text-2xl uppercase leading-[1.0] md:text-4xl"
                 style={titleStyle}
               >
                 Si necesitas claridad técnica, conversemos.
               </h2>
             </div>
             <div className="flex flex-col justify-end gap-4">
-              <p className="text-xl leading-snug text-slate-700">
+              <p className="text-base leading-relaxed text-slate-700 md:text-lg">
                 Puedo aportar desarrollo web, soporte TI, análisis operacional,
                 automatización y criterio UX en una misma conversación.
               </p>
