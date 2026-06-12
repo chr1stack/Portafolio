@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f0e8;
-  --foreground: #0f172a;
+  --background: #f9f9f9;
+  --foreground: #000000;
 }
 
 @theme inline {
@@ -22,8 +22,8 @@ body {
 }
 
 ::selection {
-  background: #b8ff62;
-  color: #050505;
+  background: #e85002;
+  color: #f9f9f9;
 }
 
 img {
@@ -32,9 +32,9 @@ img {
 
 .hero-minimal {
   background:
-    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.14), transparent 30%),
-    radial-gradient(circle at 82% 72%, rgba(239, 75, 42, 0.18), transparent 32%),
-    linear-gradient(135deg, #0a0a0a 0%, #101010 52%, #1a1a1a 100%);
+    radial-gradient(circle at 18% 12%, rgba(232, 80, 2, 0.22), transparent 30%),
+    radial-gradient(circle at 82% 72%, rgba(167, 167, 167, 0.14), transparent 32%),
+    linear-gradient(135deg, #000000 0%, #333333 52%, #000000 100%);
 }
 
 .hero-minimal::before {
@@ -50,7 +50,9 @@ img {
 }
 
 .contact-bg {
-  background: linear-gradient(135deg, #fdf0f3 0%, #f0fff4 45%, #eaf2ff 100%);
+  background:
+    radial-gradient(circle at 18% 16%, rgba(232, 80, 2, 0.18), transparent 30%),
+    linear-gradient(135deg, #000000 0%, #c10801 36%, #f16001 68%, #d9c3ab 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {

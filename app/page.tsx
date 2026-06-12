@@ -47,7 +47,7 @@ type Project = {
 const projects: Project[] = [
   {
     number: "01",
-    name: "Avora",
+    name: "C3ACADEMY",
     type: "Producto educativo digital",
     image: "/avora.png",
     link: "https://avora-phi.vercel.app",
@@ -60,7 +60,7 @@ const projects: Project[] = [
     result:
       "Producto publicado y listo para evolucionar hacia lanzamiento, contenidos y ventas.",
     stack: ["Next.js", "React", "Tailwind", "Framer Motion", "Vercel"],
-    theme: "bg-[#e9fff4]",
+    theme: "bg-[#f9f9f9]",
   },
   {
     number: "02",
@@ -77,7 +77,7 @@ const projects: Project[] = [
     result:
       "Presencia digital más consistente, legible y conectada con su comunidad.",
     stack: ["WordPress", "SEO", "Marketing Digital", "Contenido", "Analítica"],
-    theme: "bg-[#eaf2ff]",
+    theme: "bg-[#a7a7a7]",
   },
 ];
 
@@ -269,7 +269,7 @@ function ProjectRow({ project }: { project: Project }) {
           style={{
             ...titleStyle,
             fontSize: "clamp(1.4rem, 2.4vw, 2.4rem)",
-            color: hovered ? "#ef4b2a" : "inherit",
+            color: hovered ? "#e85002" : "inherit",
             transition: "color 0.2s ease",
           }}
         >
@@ -348,7 +348,7 @@ function ProjectRow({ project }: { project: Project }) {
                   href={project.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="ml-auto rounded-full bg-black px-5 py-2.5 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#ef4b2a]"
+                  className="ml-auto rounded-full bg-black px-5 py-2.5 text-sm font-bold uppercase tracking-[0.16em] text-[#f9f9f9] transition hover:bg-[#e85002]"
                   onClick={(e) => e.stopPropagation()}
                 >
                   Ver →
@@ -367,14 +367,14 @@ export default function Portfolio() {
   const progress = useSpring(scrollYProgress, { stiffness: 90, damping: 24 });
 
   return (
-    <main className="min-h-screen bg-[#f4f0e8] text-slate-950">
+    <main className="min-h-screen bg-[#f9f9f9] text-black">
         <motion.div
-          className="fixed left-0 top-0 z-50 h-1 bg-[#ef4b2a]"
+          className="fixed left-0 top-0 z-50 h-1 bg-[#e85002]"
           style={{ scaleX: progress, transformOrigin: "0%" }}
         />
 
-        <nav className="fixed left-1/2 top-5 z-40 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 rounded-full border border-white/30 bg-black/70 px-5 py-3 text-white shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl">
-          <div className="flex items-center justify-between gap-4">
+        <nav className="fixed left-0 right-0 top-0 z-40 border-b border-[#333333] bg-black/82 px-4 py-4 text-[#f9f9f9] backdrop-blur-md md:px-8">
+          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
             <a href="#inicio" className="text-sm font-semibold uppercase tracking-[0.28em]">
               CVR
             </a>
@@ -383,7 +383,7 @@ export default function Portfolio() {
                 <a
                   key={label}
                   href={href}
-                  className="rounded-full px-4 py-2 text-xs uppercase tracking-[0.18em] text-white/55 transition hover:bg-white hover:text-black"
+                  className="px-3 py-2 text-xs uppercase tracking-[0.18em] text-white/50 transition hover:text-white"
                 >
                   {label}
                 </a>
@@ -391,7 +391,7 @@ export default function Portfolio() {
             </div>
             <a
               href={`mailto:${profile.email}`}
-              className="rounded-full bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-black transition hover:bg-[#b8ff62]"
+              className="border-b border-[#f9f9f9]/45 pb-1 text-xs font-bold uppercase tracking-[0.18em] text-[#f9f9f9] transition hover:border-[#e85002] hover:text-[#e85002]"
             >
               Hablemos
             </a>
@@ -401,12 +401,116 @@ export default function Portfolio() {
         {/* HERO */}
         <section
           id="inicio"
-          className="hero-minimal relative min-h-screen overflow-x-hidden px-4 pb-10 pt-28 text-white md:px-8"
+          className="hero-minimal relative min-h-screen overflow-hidden bg-black px-4 pb-10 pt-24 text-[#f9f9f9] md:px-8 lg:pt-28"
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.14),transparent_36%)]" />
-          <div className="relative mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl flex-col justify-end">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(255,255,255,0.14),transparent_36%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:72px_72px]" />
+          <div
+            className="pointer-events-none absolute bottom-[10%] right-[4%] hidden select-none text-[clamp(8rem,20vw,24rem)] font-semibold uppercase leading-none tracking-[-0.12em] text-white/[0.035] lg:block"
+            style={titleStyle}
+          >
+            2026
+          </div>
+          <div className="pointer-events-none absolute right-[8%] top-[30%] hidden w-72 border-l border-white/12 pl-6 xl:block">
+            <p className="mb-6 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#e85002]">
+              Portfolio System
+            </p>
+            {["Desarrollo Web", "Soporte TI", "UX Operativo", "Automatización"].map((item, index) => (
+              <p key={item} className="border-t border-white/12 py-4 text-xs uppercase tracking-[0.22em] text-white/52">
+                0{index + 1} / {item}
+              </p>
+            ))}
+          </div>
+          <motion.div
+            className="hidden"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 90, damping: 24, mass: 0.9 }}
+          >
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.055)_1px,transparent_1px)] bg-[size:54px_54px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(239,75,42,0.20),transparent_30%),radial-gradient(circle_at_80%_70%,rgba(109,140,255,0.18),transparent_34%)]" />
+
+            <div className="relative flex h-full flex-col justify-between">
+              <div className="flex items-start justify-between text-[10px] font-semibold uppercase tracking-[0.28em] text-white/42">
+                <span>Updated / 2026</span>
+                <span className="rounded-full bg-[#e85002] px-3 py-1 text-black">Portfolio</span>
+              </div>
+
+              <div>
+                <p
+                  className="text-[clamp(4.5rem,9vw,10rem)] font-semibold uppercase leading-[0.74] tracking-[-0.09em] text-white/86"
+                  style={titleStyle}
+                >
+                  Web
+                  <span className="block text-transparent" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.34)" }}>
+                    Ops
+                  </span>
+                </p>
+                <div className="mt-6 grid grid-cols-[0.75fr_1.25fr] gap-5 border-t border-white/12 pt-5">
+                  <p className="text-[10px] font-semibold uppercase leading-relaxed tracking-[0.24em] text-[#e85002]">
+                    Desarrollo Web<br />Soporte TI<br />UX Operativo
+                  </p>
+                  <p className="text-sm leading-relaxed text-white/58">
+                    Un sistema visual para explicar lo que hago: construir interfaces claras,
+                    ordenar procesos y conectar herramientas reales de trabajo.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-[160px_1fr] gap-5">
+                <div className="relative h-44 overflow-hidden border border-white/12 bg-black">
+                  <Image
+                    src="/foto.png"
+                    alt="Christofer Villagrán"
+                    fill
+                    priority
+                    className="object-cover object-top opacity-70 grayscale"
+                    style={{ objectPosition: "top center" }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
+                </div>
+                <div className="grid grid-cols-2 gap-px overflow-hidden border border-white/10 bg-white/10 text-white/65">
+                  {["Next.js", "React", "SAP", "OSM", "SIEBEL", "TOA"].map((item) => (
+                    <div key={item} className="bg-black/30 px-3 py-3 text-xs uppercase tracking-[0.18em]">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          <div className="relative z-10 mx-auto flex min-h-[calc(100vh-6rem)] max-w-7xl flex-col lg:min-h-[calc(100vh-8rem)]">
             <motion.div
-              className="pb-8"
+              className="hidden"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ type: "spring", stiffness: 90, damping: 24, mass: 0.9 }}
+            >
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.055)_1px,transparent_1px)] bg-[size:42px_42px]" />
+              <p
+                className="relative text-[clamp(3.7rem,18vw,6rem)] font-semibold uppercase leading-[0.78] tracking-[-0.09em] text-white/88"
+                style={titleStyle}
+              >
+                Portfolio
+              </p>
+              <div className="relative mt-5 grid grid-cols-[88px_1fr] gap-4">
+                <div className="relative h-28 overflow-hidden border border-white/12 bg-black">
+                  <Image
+                    src="/foto.png"
+                    alt="Christofer Villagrán"
+                    fill
+                    priority
+                    className="object-cover object-top opacity-70 grayscale"
+                    style={{ objectPosition: "top center" }}
+                  />
+                </div>
+                <p className="text-xs uppercase leading-relaxed tracking-[0.18em] text-white/55">
+                  Web · TI · UX · Automatización · Operación
+                </p>
+              </div>
+            </motion.div>
+            <motion.div
+              className="flex flex-1 flex-col justify-end pb-8 lg:w-[60%]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
@@ -420,7 +524,7 @@ export default function Portfolio() {
                 <span className="rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/65">
                   {profile.location}
                 </span>
-                <span className="rounded-full bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-black">
+                <span className="rounded-full bg-[#f9f9f9] px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-black">
                   Disponible
                 </span>
               </motion.div>
@@ -429,8 +533,8 @@ export default function Portfolio() {
                 className="uppercase"
                 style={{
                   ...titleStyle,
-                  fontSize: "clamp(2.8rem, 6vw, 5.5rem)",
-                  lineHeight: 0.9,
+                  fontSize: "clamp(3.3rem, 8vw, 8rem)",
+                  lineHeight: 0.88,
                 }}
               >
                 <AnimatedWord text="CHRISTOFER" delay={0.2} />
@@ -438,16 +542,13 @@ export default function Portfolio() {
               </h1>
 
               <motion.div
-                className="mt-8 grid max-w-3xl gap-4 md:grid-cols-[0.72fr_1.28fr]"
+                className="mt-8 max-w-xl"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.1 }}
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/40">
-                  {profile.role}
-                </p>
-                <p className="text-base leading-relaxed text-white/76 md:text-lg">
-                  {profile.summary}
+                <p className="text-base leading-relaxed text-white/70 md:text-lg">
+                  Desarrollo Web · Soporte TI · UX Operativo · Automatización.
                 </p>
               </motion.div>
             </motion.div>
@@ -455,7 +556,7 @@ export default function Portfolio() {
         </section>
 
         {/* SOBRE MÍ */}
-        <section className="bg-[#f4f0e8] px-4 py-24 md:px-8 md:py-32">
+        <section className="bg-[#f9f9f9] px-4 py-24 md:px-8 md:py-32">
           <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
             {/* Texto */}
             <motion.div
@@ -483,7 +584,7 @@ export default function Portfolio() {
                 ].map(([num, label]) => (
                   <div
                     key={label}
-                    className="rounded-2xl border border-black/10 bg-white/60 px-6 py-5"
+                    className="rounded-2xl border border-black/10 bg-[#a7a7a7]/25 px-6 py-5"
                   >
                     <p
                       className="leading-none text-slate-950"
@@ -534,7 +635,7 @@ export default function Portfolio() {
         </div>
 
         {/* PROYECTOS */}
-        <section id="trabajo" className="bg-[#f4f0e8] px-4 py-24 md:px-8 md:py-32">
+        <section id="trabajo" className="bg-[#f9f9f9] px-4 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
             <div className="mb-14 grid gap-6 md:grid-cols-[0.7fr_1.3fr]">
               <Label>Trabajo seleccionado</Label>
@@ -554,7 +655,7 @@ export default function Portfolio() {
         </section>
 
         {/* IMPACTO */}
-        <section id="impacto" className="bg-[#101010] px-4 py-24 text-white md:px-8 md:py-32">
+        <section id="impacto" className="bg-black px-4 py-24 text-[#f9f9f9] md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
             <div className="mb-14 grid gap-6 md:grid-cols-[0.72fr_1.28fr]">
               <Label light>Contribuciones</Label>
@@ -569,7 +670,7 @@ export default function Portfolio() {
               {impact.map((item, index) => (
                 <motion.article
                   key={item.title}
-                  className="grid gap-6 bg-[#101010] p-6 transition hover:bg-white hover:text-black md:grid-cols-[0.35fr_0.65fr] md:p-8"
+                  className="grid gap-6 bg-black p-6 transition hover:bg-[#f9f9f9] hover:text-black md:grid-cols-[0.35fr_0.65fr] md:p-8"
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
@@ -609,7 +710,7 @@ export default function Portfolio() {
         </section>
 
         {/* HABILIDADES */}
-        <section id="habilidades" className="bg-[#f0f0f0] px-4 py-24 md:px-8 md:py-32">
+        <section id="habilidades" className="bg-[#a7a7a7] px-4 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
             <div className="mb-14 grid gap-6 md:grid-cols-[0.75fr_1.25fr]">
               <Label>Habilidades</Label>
@@ -624,7 +725,7 @@ export default function Portfolio() {
               {skills.map((skill, index) => (
                 <motion.article
                   key={skill.area}
-                  className="min-h-80 rounded-[1.8rem] border border-black/10 bg-white/70 p-6 shadow-[0_30px_90px_rgba(15,23,42,0.08)] backdrop-blur transition hover:-translate-y-2 hover:bg-black hover:text-white"
+                  className="min-h-80 rounded-[1.8rem] border border-black/10 bg-[#f9f9f9]/70 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.12)] backdrop-blur transition hover:-translate-y-2 hover:bg-black hover:text-[#f9f9f9]"
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
@@ -654,7 +755,7 @@ export default function Portfolio() {
         </section>
 
         {/* TECNOLOGÍAS */}
-        <section id="tecnologias" className="bg-[#eaf2ff] px-4 py-24 md:px-8 md:py-32">
+        <section id="tecnologias" className="bg-[#333333] px-4 py-24 text-[#f9f9f9] md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
             <div className="mb-14 grid gap-6 md:grid-cols-[0.75fr_1.25fr]">
               <Label>Tecnologías</Label>
@@ -665,12 +766,12 @@ export default function Portfolio() {
                 Herramientas reales usadas en trabajo real.
               </h2>
             </div>
-            <div className="grid gap-px overflow-hidden rounded-[2rem] border border-black/10 bg-black/10 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-px overflow-hidden rounded-[2rem] border border-[#646464] bg-[#646464] md:grid-cols-2 lg:grid-cols-3">
               {tech.map(([name, use], index) => (
                 <div
                   key={name}
-                  className={`min-h-52 cursor-default p-6 transition-all duration-300 hover:bg-black hover:text-white ${
-                    index % 2 === 0 ? "bg-[#eaf2ff]" : "bg-white"
+                  className={`min-h-52 cursor-default p-6 transition-all duration-300 hover:bg-[#e85002] hover:text-black ${
+                    index % 2 === 0 ? "bg-[#333333]" : "bg-[#464646]"
                   }`}
                 >
                   <p className="mb-10 text-xs font-bold uppercase tracking-[0.22em] opacity-45">
@@ -688,7 +789,7 @@ export default function Portfolio() {
 
         {/* CONTACTO */}
         <section id="contacto" className="contact-bg px-4 py-24 md:px-8 md:py-32">
-          <div className="mx-auto grid max-w-7xl gap-8 rounded-[2.5rem] border border-black/10 bg-white/65 p-6 shadow-[0_50px_140px_rgba(15,23,42,0.14)] backdrop-blur-xl md:grid-cols-[3fr_2fr] md:p-12">
+          <div className="mx-auto grid max-w-7xl gap-8 rounded-[2.5rem] border border-black/20 bg-[#f9f9f9]/82 p-6 shadow-[0_50px_140px_rgba(0,0,0,0.18)] backdrop-blur-xl md:grid-cols-[3fr_2fr] md:p-12">
             <div>
               <Label>Contacto</Label>
               <h2
@@ -705,7 +806,7 @@ export default function Portfolio() {
               </p>
               <a
                 href={`mailto:${profile.email}`}
-                className="rounded-full bg-black px-6 py-4 text-center font-bold uppercase text-white transition hover:bg-[#ef4b2a]"
+                className="rounded-full bg-black px-6 py-4 text-center font-bold uppercase text-[#f9f9f9] transition hover:bg-[#e85002] hover:text-black"
                 style={{ fontSize: "0.7rem", letterSpacing: "0.1em" }}
               >
                 {profile.email}
@@ -715,7 +816,7 @@ export default function Portfolio() {
                   href={profile.whatsapp}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 rounded-full border border-black/15 px-5 py-4 text-center text-xs font-bold uppercase tracking-[0.18em] transition hover:bg-[#b8ff62]"
+                  className="flex-1 rounded-full border border-black/15 px-5 py-4 text-center text-xs font-bold uppercase tracking-[0.18em] transition hover:bg-[#e85002] hover:text-black"
                 >
                   WhatsApp
                 </a>
@@ -723,7 +824,7 @@ export default function Portfolio() {
                   href={profile.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 rounded-full border border-black/15 px-5 py-4 text-center text-xs font-bold uppercase tracking-[0.18em] transition hover:bg-[#b8ff62]"
+                  className="flex-1 rounded-full border border-black/15 px-5 py-4 text-center text-xs font-bold uppercase tracking-[0.18em] transition hover:bg-[#e85002] hover:text-black"
                 >
                   GitHub
                 </a>
@@ -732,7 +833,7 @@ export default function Portfolio() {
           </div>
         </section>
 
-        <footer className="bg-black px-4 py-8 text-white md:px-8">
+        <footer className="bg-black px-4 py-8 text-[#f9f9f9] md:px-8">
           <div className="mx-auto flex max-w-7xl flex-col gap-3 text-xs uppercase tracking-[0.22em] text-white/45 md:flex-row md:items-center md:justify-between">
             <span>Christofer Villagrán Rivera · 2026</span>
             <span>Desarrollo Web · TI · UX · Automatización</span>
