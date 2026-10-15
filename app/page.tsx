@@ -190,9 +190,9 @@ status: "Pre-lanzamiento"`,
 
 const experience = [
   {
-    period: "2026 - Actualidad",
-    role: "Desarrollador Web",
-    company: "Del Carpio Ltda · Santiago",
+    period: "2026 – actualidad",
+    role: "Diseñador y desarrollador web",
+    company: "Del Carpio · Santiago",
     text: "Migración desde WordPress a Next.js, fichas dinámicas, catálogo filtrable, tour virtual 360 y optimización de rendimiento.",
     tools: ["Next.js", "TypeScript", "Tailwind", "Core Web Vitals"],
   },
