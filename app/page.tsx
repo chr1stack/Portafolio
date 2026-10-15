@@ -68,7 +68,7 @@ const services = [
   },
 ];
 
-const technologies = [
+const techWeb = [
   {
     name: "Next.js",
     logo: "/logos/nextdotjs.svg",
@@ -85,8 +85,7 @@ const technologies = [
     name: "React",
     logo: "/logos/react.svg",
     color: "#00a3ff",
-    context:
-      "Interfaces interactivas, módulos reutilizables y estados visuales.",
+    context: "Interfaces interactivas, módulos reutilizables y estados visuales.",
   },
   {
     name: "Tailwind CSS",
@@ -98,8 +97,7 @@ const technologies = [
     name: "WordPress",
     logo: "/logos/wordpress.svg",
     color: "#21759b",
-    context:
-      "Administración, mantención y migración de sitios institucionales.",
+    context: "Administración, mantención y migración de sitios institucionales.",
   },
   {
     name: "Figma",
@@ -119,6 +117,21 @@ const technologies = [
     color: "#ff4500",
     context: "Dominios, despliegue y soporte para proyectos web.",
   },
+  {
+    name: "Vercel",
+    logo: null,
+    color: "#000000",
+    context: "Despliegue continuo, preview environments y hosting frontend.",
+  },
+  {
+    name: "IA (Claude Code · Codex)",
+    logo: null,
+    color: "#ff4500",
+    context: "Desarrollo asistido por IA: scaffolding, revisión y productividad.",
+  },
+];
+
+const techSystems = [
   {
     name: "SAP",
     logo: "/logos/sap.svg",
@@ -578,21 +591,44 @@ export default function Home() {
           text="Cada tecnología aparece conectada a una situación real de trabajo, producto o soporte."
         />
 
-        <div className="technology-grid">
-          {technologies.map((technology) => (
-            <article
-              key={technology.name}
-              style={{ "--brand-color": technology.color } as CSSProperties}
-            >
-              <TechLogo
-                name={technology.name}
-                logo={technology.logo}
-                color={technology.color}
-              />
-              <h3>{technology.name}</h3>
-              <p>{technology.context}</p>
-            </article>
-          ))}
+        <div className="stack-group stack-group--primary">
+          <p className="stack-group__label">Desarrollo web</p>
+          <div className="technology-grid">
+            {techWeb.map((technology) => (
+              <article
+                key={technology.name}
+                style={{ "--brand-color": technology.color } as CSSProperties}
+              >
+                <TechLogo
+                  name={technology.name}
+                  logo={technology.logo}
+                  color={technology.color}
+                />
+                <h3>{technology.name}</h3>
+                <p>{technology.context}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="stack-group stack-group--secondary">
+          <p className="stack-group__label">Sistemas empresariales</p>
+          <div className="technology-grid technology-grid--compact">
+            {techSystems.map((technology) => (
+              <article
+                key={technology.name}
+                style={{ "--brand-color": technology.color } as CSSProperties}
+              >
+                <TechLogo
+                  name={technology.name}
+                  logo={technology.logo}
+                  color={technology.color}
+                />
+                <h3>{technology.name}</h3>
+                <p>{technology.context}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
