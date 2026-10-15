@@ -68,10 +68,9 @@ export default function DelCarpioPage() {
             <div className="cs-text-block">
               <h2>Rol</h2>
               <p>
-                Desarrollador web frontend responsable del diseño técnico, la
-                migración de contenido y la implementación completa del nuevo
-                sitio. Trabajo directo con el cliente desde el relevamiento
-                hasta el despliegue.
+                Diseñador y desarrollador web en Del Carpio. Responsable del
+                diseño, la migración de contenido y la implementación completa
+                del nuevo sitio.
               </p>
             </div>
             <div className="cs-text-block">
@@ -139,7 +138,7 @@ export default function DelCarpioPage() {
             Catálogo filtrable de más de 80 productos con fichas dinámicas, tour
             virtual 360° integrado y una base preparada para escalar. El Speed
             Index bajó de 16.3s a 3.4s, mejorando la experiencia en dispositivos
-            móviles y el posicionamiento orgánico.
+            móviles.
           </p>
         </div>
       </section>
