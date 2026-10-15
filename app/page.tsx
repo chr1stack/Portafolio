@@ -490,9 +490,7 @@ export default function Home() {
         <div className="project-grid">
           {projects.map((project) => (
             <article key={project.name} className="project-card">
-              <div
-                className={`project-card__media${project.image && project.visualTitle ? " project-card__media--with-overlay" : ""}`}
-              >
+              <div className="project-card__media">
                 {project.image ? (
                   <Image
                     src={project.image}
@@ -506,12 +504,6 @@ export default function Home() {
                     title={project.visualTitle ?? project.name}
                     code={project.visualCode ?? project.description}
                   />
-                )}
-                {project.image && project.visualTitle && (
-                  <div className="project-card__code-overlay" aria-hidden="true">
-                    <span>{project.visualTitle}</span>
-                    <code>{project.visualCode}</code>
-                  </div>
                 )}
               </div>
               <div className="project-card__body">
