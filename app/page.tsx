@@ -370,6 +370,40 @@ function AbstractProjectVisual({
   );
 }
 
+function FadeInCard({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("in-view");
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.12 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <div
+      ref={ref}
+      className="fade-card"
+      style={{ "--delay": delay } as CSSProperties}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <main>
@@ -488,49 +522,51 @@ export default function Home() {
         />
 
         <div className="project-grid">
-          {projects.map((project) => (
-            <article key={project.name} className="project-card">
-              <div className="project-card__media">
-                {project.image ? (
-                  <Image
-                    src={project.image}
-                    alt={`Captura de pantalla del sitio ${project.name}`}
-                    fill
-                    className="object-cover object-top"
-                    sizes="(min-width: 1024px) 42vw, 92vw"
-                  />
-                ) : (
-                  <AbstractProjectVisual
-                    title={project.visualTitle ?? project.name}
-                    code={project.visualCode ?? project.description}
-                  />
-                )}
-              </div>
-              <div className="project-card__body">
-                <p className="project-card__meta">
-                  {project.number} · {project.category}
-                </p>
-                <h3>{project.name}</h3>
-                <p>{project.description}</p>
-                <strong>{project.result}</strong>
-                <ul>
-                  {project.stack.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <a
-                  href={project.href}
-                  target={
-                    project.href.startsWith("http") ? "_blank" : undefined
-                  }
-                  rel={
-                    project.href.startsWith("http") ? "noreferrer" : undefined
-                  }
-                >
-                  Ver proyecto
-                </a>
-              </div>
-            </article>
+          {projects.map((project, i) => (
+            <FadeInCard key={project.name} delay={i * 80}>
+              <article className="project-card">
+                <div className="project-card__media">
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={`Captura de pantalla del sitio ${project.name}`}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(min-width: 1024px) 42vw, 92vw"
+                    />
+                  ) : (
+                    <AbstractProjectVisual
+                      title={project.visualTitle ?? project.name}
+                      code={project.visualCode ?? project.description}
+                    />
+                  )}
+                </div>
+                <div className="project-card__body">
+                  <p className="project-card__meta">
+                    {project.number} · {project.category}
+                  </p>
+                  <h3>{project.name}</h3>
+                  <p>{project.description}</p>
+                  <strong>{project.result}</strong>
+                  <ul>
+                    {project.stack.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <a
+                    href={project.href}
+                    target={
+                      project.href.startsWith("http") ? "_blank" : undefined
+                    }
+                    rel={
+                      project.href.startsWith("http") ? "noreferrer" : undefined
+                    }
+                  >
+                    Ver proyecto
+                  </a>
+                </div>
+              </article>
+            </FadeInCard>
           ))}
         </div>
       </section>

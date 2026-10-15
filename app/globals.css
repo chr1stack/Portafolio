@@ -675,6 +675,26 @@ button:focus-visible {
   line-height: 1.55;
 }
 
+/* scroll fade-in — fires once, disabled with prefers-reduced-motion */
+.fade-card {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.55s ease calc(var(--delay, 0) * 1ms),
+    transform 0.55s ease calc(var(--delay, 0) * 1ms);
+}
+.fade-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .project-grid {
   display: grid;
   gap: clamp(18px, 2vw, 28px);
@@ -693,8 +713,11 @@ button:focus-visible {
     box-shadow 180ms ease;
 }
 
-.project-card:first-child {
+.fade-card:first-child {
   grid-row: span 2;
+}
+.fade-card:first-child .project-card {
+  height: 100%;
 }
 
 .project-card:hover {
@@ -710,7 +733,7 @@ button:focus-visible {
   background: var(--ink);
 }
 
-.project-card:first-child .project-card__media {
+.fade-card:first-child .project-card__media {
   min-height: 390px;
 }
 
@@ -1124,7 +1147,7 @@ button:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .project-card:first-child {
+  .fade-card:first-child {
     grid-row: span 1;
   }
 
@@ -1314,11 +1337,11 @@ button:focus-visible {
   }
 
   .project-card__media,
-  .project-card:first-child .project-card__media {
+  .fade-card:first-child .project-card__media {
     min-height: 220px;
   }
 
-  .project-card:first-child .project-card__media {
+  .fade-card:first-child .project-card__media {
     min-height: 300px;
   }
 
